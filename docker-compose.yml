@@ -7,7 +7,14 @@ services:
       - "./ansible/hosts:/etc/ansible/hosts"
       - "./playbooks:/root/playbooks"
     links:
-      - server
+      - ubuntu
+      - centos
 
-  server:
-    build: .
+  ubuntu:
+    build:
+        context: .
+        dockerfile: ubuntu.Dockerfile
+  centos:
+    build:
+        context: .
+        dockerfile: centos.Dockerfile
